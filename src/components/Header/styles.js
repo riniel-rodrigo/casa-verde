@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
+export const containerHeader = styled.div`
+    display:flex;
+    justify-content:center;
+`;
+
 export const Header = styled.header`
     display:flex;
-    justify-content:space-around;
     align-items:end;
+    justify-content:space-between;
+    width:70%;
     padding: 0.9rem 0;
-
 `;
 
 export const ListBox = styled.ul`
@@ -19,6 +24,6 @@ export const ListBox = styled.ul`
         font-weight:600;
         font-size:0.75;
         line-height:1.219rem;
-        color:#2c2c2c;
+        color:#3f4042;
     }
 `;
