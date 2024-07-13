@@ -7,21 +7,20 @@ export const containerHero = styled.div`
 
   background-image: url(${heroTree});
   background-repeat: no-repeat;
-  background-position: 70% 30%;
-  background-size: 700px auto;
+  background-position: 80% -50px;
+  background-size: 43.75rem auto;
 `;
 
 export const Hero = styled.section`
   width: 70%;
-  height: 90%;
 `;
 
 export const section1 = styled.section`
   display: flex;
   flex-direction: column;
   padding-top: 7rem;
-  width: 585px;
-  height: 100vh;
+  width: 36.563rem;
+  height: 51rem;
 
   span {
     font-weight: 400;

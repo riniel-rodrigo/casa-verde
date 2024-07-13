@@ -8,6 +8,7 @@ export const NewsletterDiv = styled.div`
     justify-content: space-between;
     width: 36.563rem;
     height: 4.688rem;
+    padding-left:1rem;
     box-shadow: 0.625rem 0.625rem 1.875rem 0px #0000000f;
 
     input {
@@ -22,22 +23,28 @@ export const NewsletterDiv = styled.div`
         color: #bcbcbc;
     }
 
-    button {
+    div {
+        display: flex;
+        gap: 0.8rem;
+    }
+`;
+
+export const SubmitButton = styled.button`
         all: unset;
         height: 100%;
         padding: 0 1rem;
-        background-color: #ffcb47;
+        background-color: ${(props) => props.valid ? '#ffcb47' : '#4d4d4d'};
         color: #fff;
         transition:all 0.1s ease-in-out;
 
         &:hover{
             cursor: pointer;
-            background-color:#ffb907;
+            cursor: ${(props) => props.valid ? 'pointer' : 'not-allowed'};
+            background-color: ${(props) => props.valid ? '#ffb907' : '#4d4d4d'};
         }
-    }
 
-    div {
-        display: flex;
-        gap: 0.8rem;
-    }
+        &:active{
+            transform: scale(0.95);
+            transition: all 0.3s ease-in-out;
+        }
 `;
