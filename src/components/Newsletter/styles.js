@@ -45,6 +45,11 @@ export const SubmitButton = styled.button`
 
         &:active{
             transform: scale(0.95);
-            transition: all 0.3s ease-in-out;
+            transition: all 0.1s ease-in-out;
         }
+`;
+
+export const ErrorMessage = styled.span`
+    color: #D41E00 !important;
+    font-size: 0.9rem !important;
 `;

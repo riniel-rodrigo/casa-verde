@@ -2,6 +2,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
+import emailjs from 'emailjs-com';
 
 import * as S from "./styles.js";
 
@@ -20,16 +21,40 @@ export default function Newsletter() {
     return re.test(email);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (isValid) {
-      toast.success(`Obrigado pela sua assinatura, você receberá nossas novidades no e-mail inserido.`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: true,
-      });
-    }
+      try {
+        const templateParams = {
+          user_email: email,
+        };
 
+        await emailjs.send(
+          'service_kzk5r19',
+          'template_yjn6ypd',
+          templateParams,
+          'HYDq5ivkhUiTh2RLt'
+        );
+
+        toast.success(`Obrigado pela sua assinatura! Você receberá nossas novidades no e-mail inserido.`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+        });
+
+        setEmail('');
+        setIsValid(false);
+
+      } catch (error) {
+        console.error('Erro ao enviar email:', error);
+        toast.error('Ocorreu um erro ao enviar o email. Tente novamente mais tarde.', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+        });
+      }
+    }
   };
+
   return (
     <div>
       <ToastContainer />
